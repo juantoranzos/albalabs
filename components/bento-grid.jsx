@@ -44,8 +44,8 @@ const services = [
 
 export function BentoGrid() {
   return (
-    <section className="py-24 px-4 md:px-6 relative">
-      <div className="container mx-auto">
+    <section className="py-24 px-4 md:px-8 relative">
+      <div className="max-w-6xl mx-auto w-full">
         <div className="mb-16 md:text-center max-w-3xl mx-auto">
           <h2 className="text-3xl md:text-5xl font-bold font-display mb-6">
             Soluciones para <span className="text-gradient-electric">Desafíos Modernos</span>

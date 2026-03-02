@@ -23,7 +23,7 @@ export function HeroSection() {
         <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-[var(--radiant-violet)] rounded-full mix-blend-multiply filter blur-[128px] opacity-20 animate-pulse delay-700" />
       </div>
 
-      <div className="container relative z-10 px-4 md:px-6 flex flex-col items-center text-center">
+      <div className="max-w-6xl mx-auto relative z-10 px-4 md:px-8 w-full flex flex-col items-center text-center">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}

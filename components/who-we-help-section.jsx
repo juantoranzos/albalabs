@@ -13,11 +13,11 @@ const targetAudience = [
 
 export function WhoWeHelpSection() {
     return (
-        <section className="py-24 px-4 md:px-6 relative overflow-hidden">
+        <section className="py-24 px-4 md:px-8 relative overflow-hidden">
             {/* Background element for depth */}
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-[var(--radiant-violet)] rounded-full mix-blend-multiply filter blur-[128px] opacity-10 pointer-events-none" />
 
-            <div className="container mx-auto relative z-10 max-w-4xl">
+            <div className="max-w-6xl mx-auto w-full relative z-10">
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
@@ -25,7 +25,7 @@ export function WhoWeHelpSection() {
                     className="text-center mb-12"
                 >
                     <h2 className="text-3xl md:text-5xl font-bold font-display mb-6">
-                        ¿Para quién es <span className="text-gradient-electric">Albastudio</span>?
+                        ¿Para quién es <span className="text-gradient-electric">AlbaLabs</span>?
                     </h2>
                 </motion.div>
 

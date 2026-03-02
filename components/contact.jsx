@@ -53,7 +53,7 @@ export default function Contact() {
             {/* Background Effects */}
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[var(--radiant-violet)] rounded-full mix-blend-multiply filter blur-[150px] opacity-10 pointer-events-none" />
 
-            <div className="container relative z-10 mx-auto px-4 max-w-4xl">
+            <div className="max-w-6xl mx-auto w-full relative z-10 px-4 md:px-8">
                 <div className="text-center mb-16">
                     <h2 className="text-4xl md:text-5xl font-bold font-display tracking-tight mb-4">
                         Empecemos tu <span className="text-gradient-electric">próximo proyecto</span>
@@ -97,7 +97,7 @@ export default function Contact() {
                                         value={formData.name}
                                         onChange={handleChange}
                                         className="w-full bg-black/40 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-[var(--cyber-blue)] transition-colors"
-                                        placeholder="John Doe"
+                                        placeholder="Juan Baez"
                                     />
                                 </div>
                                 <div className="space-y-2">
@@ -112,7 +112,7 @@ export default function Contact() {
                                         value={formData.email}
                                         onChange={handleChange}
                                         className="w-full bg-black/40 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-[var(--cyber-blue)] transition-colors"
-                                        placeholder="john@empresa.com"
+                                        placeholder="juan@empresa.com"
                                     />
                                 </div>
                             </div>
