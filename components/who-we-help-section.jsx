@@ -54,7 +54,7 @@ export function WhoWeHelpSection() {
                         <div className="absolute -inset-1 bg-gradient-to-r from-[var(--cyber-blue)] to-[var(--radiant-violet)] rounded-2xl opacity-20 blur-lg"></div>
                         <div className="relative bg-black/40 border-l-4 border-[var(--cyber-blue)] p-6 md:p-8 rounded-r-xl">
                             <p className="text-xl md:text-2xl font-medium text-white leading-relaxed italic">
-                                "Si buscás una solución clara, sin complejidad innecesaria, estamos para ayudarte."
+                                &quot;Si buscás una solución clara, sin complejidad innecesaria, estamos para ayudarte.&quot;
                             </p>
                         </div>
                     </div>

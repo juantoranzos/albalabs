@@ -1,6 +1,7 @@
 import { Inter, Montserrat } from "next/font/google";
 import "./globals.css";
 import { cn } from "@/lib/utils";
+import { WhatsAppButton } from "@/components/ui/whatsapp-button";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -13,13 +14,13 @@ const montserrat = Montserrat({
 });
 
 export const metadata = {
-  title: "AlbaStudio | Logic to Experience",
-  description: "Boutique software consultancy transforming complex logic into impeccable digital experiences.",
+  title: "AlbaLabs",
+  description: "AlbaLabs es una consultora de software especializada en desarrollo web moderno, aplicaciones SaaS y soluciones digitales a medida para empresas que buscan escalar.",
 };
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
+    <html lang="es">
       <body
         className={cn(
           inter.variable,
@@ -28,6 +29,7 @@ export default function RootLayout({ children }) {
         )}
       >
         {children}
+        <WhatsAppButton />
       </body>
     </html>
   );
