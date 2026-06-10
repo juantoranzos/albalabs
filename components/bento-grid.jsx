@@ -1,94 +1,90 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Globe, Smartphone, Cloud, Bot, Timer, Computer } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 const services = [
   {
-    title: "Landing Pages",
-    description: "Sitios web modernos, rápidos y optimizados para mostrar tu negocio y generar clientes.",
-    icon: Globe,
+    title: "Sitios web que venden",
+    description:
+      "Una web que carga rápido, aparece en Google y convierte visitas en clientes. Incluye dominio, hosting y un año de soporte.",
+    featured: true,
     className: "md:col-span-2",
-    gradient: "from-[var(--cyber-blue)]/20 to-transparent",
   },
   {
-    title: "Desarrollo Web",
-    description: "Sitios web completos, e-commerce, plataformas y sistemas a medida con las tecnologías más modernas del mercado.",
-    icon: Computer,
+    title: "Desarrollo a medida",
+    description:
+      "Desde una tienda online hasta un sistema de gestión propio. Lo construimos pensando en cómo trabaja tu negocio, no en un template genérico.",
     className: "md:col-span-1",
-    gradient: "from-[var(--radiant-violet)]/20 to-transparent",
   },
   {
-    title: "Automatizamos procesos",
-    description: "Infraestructura escalable, segura y serverless. AWS, Azure, Docker, Kubernetes.",
-    icon: Cloud,
+    title: "Automatizaciones",
+    description:
+      "Conectamos tus herramientas para que dejes de copiar datos a mano: WhatsApp, planillas, formularios, mails — todo en un flujo.",
     className: "md:col-span-1",
-    gradient: "from-[var(--emerald-green)]/20 to-transparent",
   },
   {
-    title: "Escalabilidad y Rendimiento",
-    description: "Sistemas listos para crecer sin perder rendimiento.",
-    icon: Timer,
+    title: "Tu web aguanta el pico",
+    description:
+      "Cuando salga tu próxima promo y entren todos, tu sitio no se cae. Lo preparamos para que aguante sin que tengas que pensar en eso.",
     className: "md:col-span-1",
-    gradient: "from-[var(--emerald-green)]/20 to-transparent",
   },
   {
-    title: "Mantenimiento y Soporte",
-    description: "Mantenimiento y soporte para sitios web y aplicaciones.",
-    icon: Smartphone,
+    title: "Soporte y crecimiento",
+    description:
+      "Actualizamos, optimizamos y resolvemos lo que necesites. Sin contratos por año ni letras chicas.",
     className: "md:col-span-1",
-    gradient: "from-[var(--emerald-green)]/20 to-transparent",
   },
 ];
 
 export function BentoGrid() {
   return (
-    <section className="py-24 px-4 md:px-8 relative">
+    <section className="py-24 px-4 md:px-8">
       <div className="max-w-6xl mx-auto w-full">
         <div className="mb-16 md:text-center max-w-3xl mx-auto">
-          <h2 className="text-3xl md:text-5xl font-bold font-display mb-6">
-            Soluciones para <span className="text-gradient-electric">Desafíos Modernos</span>
+          <h2 className="text-3xl md:text-5xl font-bold font-display mb-6 text-ink">
+            Qué hacemos por{" "}
+            <span className="text-brand">tu negocio</span>
           </h2>
-          <p className="text-neutral-400 text-lg">
-            Diseñamos la solucion que tu negocio necesita.
+          <p className="text-ink-soft text-lg">
+            Diseñamos la solución que necesitás, no la que está de moda.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 auto-rows-[300px]">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
           {services.map((service, index) => (
             <motion.a
               href="#contact"
               key={index}
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 16 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: index * 0.1, type: "spring", stiffness: 300 }}
-              whileHover={{ scale: 1.05, rotateX: 2, rotateY: 2, z: 10 }}
+              transition={{ delay: index * 0.07, ease: [0.22, 1, 0.36, 1], duration: 0.5 }}
+              whileHover={{ y: -4, transition: { ease: [0.22, 1, 0.36, 1], duration: 0.18 } }}
               className={cn(
-                "glass rounded-3xl p-8 relative overflow-hidden group transition-all duration-300 hover:shadow-2xl hover:shadow-[var(--cyber-blue)]/20 cursor-pointer block transform-gpu perspective-1000",
+                "rounded-xl p-8 block cursor-pointer group",
+                service.featured
+                  ? "bg-brand hover:bg-brand-ink transition-colors duration-150"
+                  : "panel hover:border-brand/50 hover:shadow-[0_16px_48px_oklch(0_0_0/0.5)] transition-[border-color,box-shadow] duration-150",
                 service.className
               )}
             >
-              {/* Subtle Gradient Background */}
-              <div
+              <h3
                 className={cn(
-                  "absolute inset-0 bg-gradient-to-br opacity-0 group-hover:opacity-100 transition-opacity duration-500",
-                  service.gradient
+                  "text-xl font-bold mb-3 transition-colors",
+                  service.featured ? "text-brand-fg text-2xl" : "text-ink"
                 )}
-              />
-
-              <div className="relative z-10 h-full flex flex-col justify-between">
-                <div>
-                  <div className="mb-4 p-3 bg-white/5 w-fit rounded-2xl group-hover:bg-white/10 transition-colors">
-                    <service.icon className="w-8 h-8 text-white" />
-                  </div>
-                  <h3 className="text-2xl font-bold mb-3">{service.title}</h3>
-                  <p className="text-neutral-400 leading-relaxed">
-                    {service.description}
-                  </p>
-                </div>
-              </div>
+              >
+                {service.title}
+              </h3>
+              <p
+                className={cn(
+                  "leading-relaxed",
+                  service.featured ? "text-brand-fg/80" : "text-ink-soft"
+                )}
+              >
+                {service.description}
+              </p>
             </motion.a>
           ))}
         </div>

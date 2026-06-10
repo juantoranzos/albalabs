@@ -16,9 +16,9 @@ export async function POST(req) {
         }
 
         const data = await resend.emails.send({
-            from: 'Albastudio Contacto <onboarding@resend.dev>', // Cambiar por dominio real propio, ej: no-reply@albastudio.com
-            to: ['contactoalbastudioweb@gmail.com'], // Aquí recibes los emails (asegúrate de que en Resend free sea al mismo correo de tu cuenta)
-            subject: `Nueva Consulta de ${name} - Albastudio`,
+            from: 'AlbaLabs Contacto <onboarding@resend.dev>', // Cambiar por dominio real, ej: no-reply@albalabs.com
+            to: ['contactoalbastudioweb@gmail.com'],
+            subject: `Nueva consulta de ${name} — AlbaLabs`,
             html: `
         <h2>Nueva Consulta de Proyecto</h2>
         <p><strong>Nombre:</strong> ${name}</p>

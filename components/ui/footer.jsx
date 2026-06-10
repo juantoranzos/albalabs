@@ -1,29 +1,28 @@
-import { Github, Instagram } from 'lucide-react'
-import React from 'react'
+import { Instagram } from "lucide-react";
 
 const Footer = () => {
-    return (
-        <div>
-            <footer id="contact" className="py-12 border-t border-white/10 text-center text-neutral-500 text-sm bg-black/20 backdrop-blur-md">
-                <div className="max-w-6xl mx-auto w-full px-4 md:px-8 space-y-4">
-
-                    <div className='flex sm:flex-row flex-col sm:items-center items-center justify-between'>
-                        <p className='text-xl'>Todos los derechos reservados © {new Date().getFullYear()} AlbaLabs. </p>
-                        <div className='flex gap-4'>
-                            <a href="https://www.instagram.com/albalabs_/" target='_blank'>
-                                <Instagram />
-                            </a>
-                            <a href="">
-                                <Github />
-                            </a>
-                        </div>
-
-                    </div>
-
-                </div>
-            </footer>
+  return (
+    <footer className="py-12 border-t border-border bg-bg">
+      <div className="max-w-6xl mx-auto w-full px-4 md:px-8">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+          <p className="text-ink-soft text-sm">
+            © {new Date().getFullYear()} AlbaLabs. Todos los derechos reservados.
+          </p>
+          <div className="flex gap-5">
+            <a
+              href="https://www.instagram.com/albalabs_/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-ink-soft hover:text-brand transition-colors"
+              aria-label="Instagram de AlbaLabs"
+            >
+              <Instagram className="w-5 h-5" />
+            </a>
+          </div>
         </div>
-    )
-}
+      </div>
+    </footer>
+  );
+};
 
-export default Footer       
+export default Footer;
