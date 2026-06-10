@@ -1,73 +1,106 @@
 @import "tailwindcss";
 
 :root {
-  /* Clean Minimalist / Dark Mode Bases */
-  --background: #0a0a0a;
-  --foreground: #ededed;
-  
-  /* Electric Accents */
-  --cyber-blue: #00f0ff;
-  --radiant-violet: #7b2cbf;
-  --emerald-green: #10b981;
+  /* Color system — OKLCH, fondo oscuro cálido + naranja-amanecer committed */
+  --bg:        oklch(0.09 0 0);         /* negro puro */
+  --surface:   oklch(0.18 0 0);         /* superficie de cards — contraste visible sobre bg */
+  --surface-2: oklch(0.26 0 0);         /* hover / surface elevado */
+  --ink:       oklch(0.96 0 0);         /* blanco para texto principal */
+  --ink-soft:  oklch(0.58 0 0);         /* texto secundario */
+  --border:    oklch(0.30 0 0);         /* bordes visibles */
+  --brand:     oklch(0.72 0.18 47);   /* naranja-amanecer */
+  --brand-ink: oklch(0.60 0.18 47);   /* naranja oscuro, hover */
+  --brand-fg:  oklch(0.14 0.02 50);   /* texto sobre botón naranja */
+  --accent:    oklch(0.60 0.09 200);  /* azul-pizarra, acento escaso */
 
-  /* Glassmorphism */
-  --glass-bg: rgba(255, 255, 255, 0.05);
-  --glass-border: rgba(255, 255, 255, 0.1);
-  
-  /* Next.js defaults adaptation */
-  --font-sans: var(--font-inter);
-  --font-display: var(--font-montserrat);
+  /* Compat aliases */
+  --background: var(--bg);
+  --foreground: var(--ink);
+
+  /* Typography */
+  --font-sans: var(--font-hanken);
+  --font-display: var(--font-bricolage);
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  
-  --color-cyber-blue: var(--cyber-blue);
-  --color-radiant-violet: var(--radiant-violet);
-  --color-emerald-green: var(--emerald-green);
-  
+  --color-background: var(--bg);
+  --color-foreground: var(--ink);
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-ink: var(--ink);
+  --color-ink-soft: var(--ink-soft);
+  --color-border: var(--border);
+  --color-brand: var(--brand);
+  --color-brand-ink: var(--brand-ink);
+  --color-brand-fg: var(--brand-fg);
+  --color-accent: var(--accent);
+
   --font-sans: var(--font-sans);
   --font-display: var(--font-display);
 
-  /* Animations */
-  --animate-float: float 6s ease-in-out infinite;
   --animate-scroll: scroll 30s linear infinite;
-  
-  @keyframes float {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-20px); }
-  }
 
   @keyframes scroll {
-    0% { transform: translateX(0); }
-    100% { transform: translateX(calc(-50% - 12px)); } /* adjusts for gaps */
+    0%   { transform: translateX(0); }
+    100% { transform: translateX(calc(-50% - 12px)); }
   }
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
+  background: var(--bg);
+  color: var(--ink);
   font-family: var(--font-sans), system-ui, sans-serif;
   overflow-x: hidden;
 }
 
-/* Glassmorphism Utility */
-.glass {
-  background: var(--glass-bg);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid var(--glass-border);
+h1, h2, h3 { text-wrap: balance; }
+p { text-wrap: pretty; }
+
+/* Panel — surface oscura con borde visible, sin glassmorphism */
+.panel {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 1rem;
+  box-shadow: 0 2px 12px oklch(0 0 0 / 0.5);
 }
 
-.text-gradient {
-  background: linear-gradient(135deg, #fff 0%, #a5a5a5 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+/* Primary button glow — layered halo + specular sweep on hover */
+.btn-glow {
+  transition: box-shadow 0.3s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-.text-gradient-electric {
-  background: linear-gradient(135deg, var(--cyber-blue) 0%, var(--radiant-violet) 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+.btn-glow:hover {
+  box-shadow:
+    0 0 8px  oklch(0.72 0.18 47 / 0.55),
+    0 0 28px oklch(0.72 0.18 47 / 0.4),
+    0 0 72px oklch(0.72 0.18 47 / 0.25),
+    inset 0 1px 0 oklch(1 0 0 / 0.3);
 }
+
+.btn-glow::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    105deg,
+    transparent 40%,
+    oklch(1 0 0 / 0.35) 50%,
+    transparent 60%
+  );
+  transform: translateX(-150%);
+}
+
+.btn-glow:hover::after {
+  transform: translateX(150%);
+  transition: transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-scroll { animation: none !important; }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+

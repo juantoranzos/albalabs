@@ -1,21 +1,25 @@
-import { Inter, Montserrat } from "next/font/google";
+import { Bricolage_Grotesque, Hanken_Grotesk } from "next/font/google";
 import "./globals.css";
 import { cn } from "@/lib/utils";
 import { WhatsAppButton } from "@/components/ui/whatsapp-button";
 
-const inter = Inter({
-  variable: "--font-inter",
+const bricolage = Bricolage_Grotesque({
+  variable: "--font-bricolage",
   subsets: ["latin"],
+  display: "swap",
+  weight: ["600", "700", "800"],
 });
 
-const montserrat = Montserrat({
-  variable: "--font-montserrat",
+const hanken = Hanken_Grotesk({
+  variable: "--font-hanken",
   subsets: ["latin"],
+  display: "swap",
 });
 
 export const metadata = {
-  title: "AlbaLabs",
-  description: "AlbaLabs es una consultora de software especializada en desarrollo web moderno, aplicaciones SaaS y soluciones digitales a medida para empresas que buscan escalar.",
+  title: "AlbaLabs — Sitios web y automatizaciones para tu negocio",
+  description:
+    "Hacemos sitios web profesionales y automatizaciones a medida para PyMEs y emprendedores de Argentina y Uruguay. Claro, rápido y sin vueltas.",
 };
 
 export default function RootLayout({ children }) {
@@ -23,8 +27,8 @@ export default function RootLayout({ children }) {
     <html lang="es">
       <body
         className={cn(
-          inter.variable,
-          montserrat.variable,
+          bricolage.variable,
+          hanken.variable,
           "antialiased min-h-screen bg-background text-foreground"
         )}
       >
