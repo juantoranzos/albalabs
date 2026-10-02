@@ -5,6 +5,7 @@ import { ArrowUpRight } from "lucide-react";
 import Image from "next/image";
 import nextlevel from "@/public/nextlevel.webp"
 import construccionesciviles from "@/public/construccionesciviles.webp"
+import qarta from "@/public/qartaportada.webp"
 
 const projects = [
   {
@@ -20,11 +21,20 @@ const projects = [
     name: "Next Level Argentina",
     type: "E-commerce",
     description:
-      "Plataforma de e-commerce full-stack con catálogo de productos, carrito de compras e integración con Mercado Pago. Desarrollada con Next.js, Firebase, Cloudinary y Zustand.",
+      "Una tienda online lista para vender todos los días: catálogo fácil de recorrer, compra rápida desde cualquier dispositivo y cobros seguros con Mercado Pago.",
     image: nextlevel,           // reemplazar con: "/projects/next-level.png"
     url: "https://nextlevelargentina.store",             // reemplazar con: "https://nextlevel.com"
     accent: "oklch(0.65 0.16 260)", // azul-eléctrico como acento de tarjeta
   },
+    {
+    name: "Qarta",
+    type: "SaaS de cartas digitales para negocios.",
+    description:
+      "Producto propio de AlbaLabs: menú digital por QR y NFC para restaurantes, bares y cafeterías. Los clientes ven la carta desde el celular y el negocio actualiza productos y precios al instante, sin reimprimir nada.",
+    image: qarta,           // reemplazar con: "/projects/next-level.png"
+    url: "https://qartaqr.com",             // reemplazar con: "https://nextlevel.com"
+    accent: "oklch(0.65 0.16 25)", // azul-eléctrico como acento de tarjeta
+  }
 ];
 
 function ProjectCard({ project, index }) {
